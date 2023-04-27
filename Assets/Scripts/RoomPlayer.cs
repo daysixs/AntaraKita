@@ -46,15 +46,9 @@ public class RoomPlayer : NetworkRoomPlayer
 
         playerColor = color;
 
-        var spawnPositions = FindObjectOfType<SpawnPositions>();
-
-        int index = spawnPositions.Index;
-
-        Vector3 spawnPos = spawnPositions.GetSpawnPos();
+        Vector3 spawnPos = FindObjectOfType<SpawnPositions>().GetSpawnPos();
 
         var playerChar = Instantiate(RoomManager.singleton.spawnPrefabs[0], spawnPos, Quaternion.identity).GetComponent<LobbyPlayerRestrict>();
-
-        playerChar.transform.localScale = index < 5 ? new Vector3(0.5f, 0.5f, 1f) : new Vector3(-0.5f, 0.5f, 1f);
 
         NetworkServer.Spawn(playerChar.gameObject, connectionToClient);
 
