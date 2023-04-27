@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 3e59c052562ac1d41922c0abfbf4f0f8
+  - enabled: 1
+    path: Assets/Scenes/AntaraKitaGamePlay.unity
+    guid: e9b2347abe55d394a8951ddcd726e586
   m_configObjects: {}
