@@ -11798,6 +11798,8 @@ MonoBehaviour:
   _allPlayersReady: 0
   roomSlots: []
   clientIndex: 0
+  minPlayerCount: 0
+  imposterCount: 0
 --- !u!4 &1929083946
 Transform:
   m_ObjectHideFlags: 0
