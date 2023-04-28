@@ -16,7 +16,7 @@ public class Bullet : NetworkBehaviour
 
     void Start()
     {
-        rigidBody.AddForce(transform.forward * force);
+        rigidBody.AddForce(transform.right * force);
     }
 
     [Server]

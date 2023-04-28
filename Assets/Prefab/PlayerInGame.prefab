@@ -405,7 +405,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.028220475}
@@ -514,7 +514,7 @@ MonoBehaviour:
   syncDirection: 1
   syncMode: 0
   syncInterval: 0
-  target: {fileID: 1565657063506347810}
+  target: {fileID: 4594064468244874670}
   clientAuthority: 0
   syncPosition: 1
   syncRotation: 1

@@ -16,7 +16,7 @@ public class PlayerShooting : NetworkBehaviour
     public Transform bulletMount;
 
     [SyncVar] 
-    public int health = 4;
+    public int health = 5;
 
     void Update()
     {
@@ -25,20 +25,9 @@ public class PlayerShooting : NetworkBehaviour
         // take input from focused window only
         if (!Application.isFocused) return;
 
-        // movement for local player
         if (isLocalPlayer)
         {
-            //// rotate
-            //float horizontal = Input.GetAxis("Horizontal");
-            //transform.Rotate(0, horizontal * rotationSpeed * Time.deltaTime, 0);
 
-            //// move
-            //float vertical = Input.GetAxis("Vertical");
-            //Vector3 forward = transform.TransformDirection(Vector3.forward);
-            //agent.velocity = forward * Mathf.Max(vertical, 0) * agent.speed;
-            //animator.SetBool("Moving", agent.velocity != Vector3.zero);
-
-            // shoot
             if (Input.GetKeyDown(shootKey))
             {
                 CmdFire();
@@ -69,6 +58,7 @@ public class PlayerShooting : NetworkBehaviour
     {
         if (other.GetComponent<Bullet>() != null)
         {
+            Debug.Log("Hit");
             --health;
             if (health == 0)
                 NetworkServer.Destroy(gameObject);
