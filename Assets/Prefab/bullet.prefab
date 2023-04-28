@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1604191129832115390}
   - component: {fileID: 357860898758580427}
   - component: {fileID: 7153862054212790802}
-  - component: {fileID: -8716911670375718572}
   - component: {fileID: 2119395085893153268}
+  - component: {fileID: 3728523557107893398}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -121,9 +121,25 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   destroyAfter: 2
-  rigidBody: {fileID: -8716911670375718572}
+  rigidBody: {fileID: 3728523557107893398}
   force: 1000
---- !u!50 &-8716911670375718572
+--- !u!70 &2119395085893153268
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604191129832115391}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11095327, y: -0.03}
+  m_Size: {x: 3.59, y: 0.84}
+  m_Direction: 1
+--- !u!50 &3728523557107893398
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -144,19 +160,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &2119395085893153268
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604191129832115391}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.11095327, y: -0.03}
-  m_Size: {x: 3.59, y: 0.84}
-  m_Direction: 1
