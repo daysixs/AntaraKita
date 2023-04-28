@@ -5,6 +5,7 @@ using Mirror;
 
 public class LobbyUI : MonoBehaviour
 {
+
     public void ExitGameRoom()
     {
         var manager = RoomManager.singleton;
