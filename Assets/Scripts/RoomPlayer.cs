@@ -5,49 +5,8 @@ using Mirror;
 
 public class RoomPlayer : NetworkRoomPlayer
 {
-
-    public GameObject ruleSettingButton;
-
-    public void Open()
-    {
-        MyRoomPlayer.lobbyPlayer.IsMoving = false;
-        ruleSettingButton.SetActive(false);
-    }
-
-    public void Close()
-    {
-        MyRoomPlayer.lobbyPlayer.IsMoving = true;
-        ruleSettingButton.SetActive(true);
-
-    }
-
-    private static RoomPlayer myRoomPlayer;
-    
-    public static RoomPlayer MyRoomPlayer
-    {
-        get
-        {
-            if(myRoomPlayer == null)
-            {
-                var players = FindObjectsOfType<RoomPlayer>();
-                foreach(var player in players)
-                {
-                    if(player.isOwned)
-                    {
-                        myRoomPlayer = player;
-                    }
-                }
-            }
-            return myRoomPlayer;
-        }
-    }
-
-
-
     [SyncVar]
     public EPlayerColor playerColor;
-
-    public PlayerMovement lobbyPlayer;
 
     private void Start()
     {
@@ -57,11 +16,6 @@ public class RoomPlayer : NetworkRoomPlayer
         {
             SpawnPlayerInLobby();
         }
-        else
-        {
-            ruleSettingButton.SetActive(false);
-        }
-
     }
 
     private void SpawnPlayerInLobby()
@@ -97,8 +51,6 @@ public class RoomPlayer : NetworkRoomPlayer
         var playerChar = Instantiate(RoomManager.singleton.spawnPrefabs[0], spawnPos, Quaternion.identity).GetComponent<LobbyPlayerRestrict>();
 
         NetworkServer.Spawn(playerChar.gameObject, connectionToClient);
-
-        playerChar.ownerNetId = netId;
 
         playerChar.playerColor = color;
     }
