@@ -5,4 +5,5 @@ using Mirror;
 
 public class AntaraKitaGamePlayer : NetworkBehaviour
 {
+
 }
