@@ -5,22 +5,9 @@ using Mirror;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    public bool isMoving;
+
     private Animator anim;
-
-    private bool isMoving;
-    public bool IsMoving
-    {
-        get { return isMoving; }
-        set
-        {
-            if(!value)
-            {
-                anim.SetBool("isMove", false);
-            }
-            isMoving = value;
-        }
-    }
-
 
     [SyncVar]
     public float playerSpeed = 2f;
@@ -61,7 +48,7 @@ public class PlayerMovement : NetworkBehaviour
     public void Move()
     {
         bool isMove = false;
-        if (isOwned && IsMoving)
+        if (isOwned && isMoving)
         {
             Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f), 1f);
             if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 1f);
