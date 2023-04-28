@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Mirror;
 
 public class CreateRoomUI : MonoBehaviour
 {
@@ -128,9 +129,13 @@ public class CreateRoomUI : MonoBehaviour
 
     public void CreateRoom()
     {
-        var manage = RoomManager.singleton;
+        var manager = NetworkManager.singleton as RoomManager;
         // opens the server and allows for clients to join the game
-        manage.StartHost();
+
+        manager.minPlayerCount = roomData.imposterNum == 1 ? 4 : roomData.imposterNum == 2 ? 7 : 9;
+        manager.imposterCount = roomData.imposterNum;
+        manager.maxConnections = roomData.maxPlayerNum;
+        manager.StartHost();
     }
 }
 

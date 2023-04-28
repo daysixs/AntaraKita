@@ -5,6 +5,7 @@ using Mirror;
 
 public class PlayerMovement : NetworkBehaviour
 {
+
     public bool isMoving;
 
     private Animator anim;

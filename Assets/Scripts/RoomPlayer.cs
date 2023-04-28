@@ -8,6 +8,46 @@ public class RoomPlayer : NetworkRoomPlayer
     [SyncVar]
     public EPlayerColor playerColor;
 
+    public PlayerMovement lobbyPlayer;
+
+
+    private static RoomPlayer myRoomPlayer;
+
+    public static RoomPlayer MyRoomPlayer
+    {
+        get
+        {
+            if (myRoomPlayer == null)
+            {
+                var players = FindObjectsOfType<RoomPlayer>();
+                foreach (var player in players)
+                {
+                    if (player.isOwned)
+                    {
+                        myRoomPlayer = player;
+                    }
+                }
+            }
+            return myRoomPlayer;
+        }
+    }
+
+    public GameObject ruleSettingButton;
+
+    public void Open()
+    {
+        MyRoomPlayer.lobbyPlayer.isMoving = false;
+        ruleSettingButton.SetActive(false);
+    }
+
+    public void Close()
+    {
+        MyRoomPlayer.lobbyPlayer.isMoving = true;
+        ruleSettingButton.SetActive(true);
+
+    }
+
+
     private void Start()
     {
         base.Start();
@@ -16,6 +56,17 @@ public class RoomPlayer : NetworkRoomPlayer
         {
             SpawnPlayerInLobby();
         }
+        else
+        {
+            ruleSettingButton.SetActive(false);
+        }
+
+        LobbyUI.instance.UpdatePlayerCount();
+    }
+
+    private void OnDestroy()
+    {
+        LobbyUI.instance.UpdatePlayerCount();
     }
 
     private void SpawnPlayerInLobby()
