@@ -161,7 +161,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 954d212df55f8c049bc718d3e8060f09, type: 2}
+  - {fileID: 2100000, guid: 22e078d9f1eb9fb4c867be77f7e479f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -350,6 +350,7 @@ MonoBehaviour:
   playerColor: 0
   playerName: 
   PlayerNameText: {fileID: 1565657063536394562}
+  playerType: 0
 --- !u!1 &1565657063536394620
 GameObject:
   m_ObjectHideFlags: 0

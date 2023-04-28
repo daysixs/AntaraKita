@@ -60,7 +60,7 @@ public class PlayerMovement : NetworkBehaviour
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Move();
     }
