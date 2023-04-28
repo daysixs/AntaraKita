@@ -11774,7 +11774,7 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 8
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 7589039879897923753, guid: ebee566ae88857f4798d38075a032711, type: 3}
+  playerPrefab: {fileID: 1565657063506346207, guid: 77a9328ac6b7a014596db554d3513784, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
@@ -11798,6 +11798,8 @@ MonoBehaviour:
   _allPlayersReady: 0
   roomSlots: []
   clientIndex: 0
+  minPlayerCount: 0
+  imposterCount: 0
 --- !u!4 &1929083946
 Transform:
   m_ObjectHideFlags: 0

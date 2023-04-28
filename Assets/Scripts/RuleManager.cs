@@ -10,11 +10,6 @@ public enum EKillRange
     Short, Normal, Long
 }
 
-//public enum ETaskBarUpdates
-//{
-//    Always, Meetings, Never
-//}
-
 
 public struct RuleData
 {
@@ -23,16 +18,9 @@ public struct RuleData
     public int emergencyMeetingCD;
     public int meetingTime;
     public int voteTime;
-    //public bool anonymousVotes;
     public float moveSpeed;
-    //public float crewSight;
     public float killCD;
     public EKillRange killRange;
-    //public bool visualTasks;
-    //public ETaskBarUpdates taskBarUpdates;
-    //public int commonTask;
-    //public int complexTask;
-    //public int simpleTask;
 
 }
 public class RuleManager : NetworkBehaviour
@@ -180,6 +168,7 @@ public class RuleManager : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (isServer)
         {
             var manager = NetworkManager.singleton as RoomManager;
@@ -187,5 +176,20 @@ public class RuleManager : NetworkBehaviour
 
             SetRecommendRule();
         }
+    }
+
+    public RuleData GetRuleData()
+    {
+        return new RuleData()
+        {
+            confirmEjects = confirmEjects,
+            emergencyMeetings = emergencyMeetings,
+            emergencyMeetingCD = emergencyMeetingCD,
+            meetingTime = meetingTime,
+            voteTime = voteTime,
+            moveSpeed = moveSpeed,
+            killCD = killCD,
+            killRange = killRange,
+        };
     }
 }

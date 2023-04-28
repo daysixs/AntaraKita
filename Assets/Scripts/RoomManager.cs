@@ -5,6 +5,8 @@ using Mirror;
 
 public class RoomManager : NetworkRoomManager
 {
+    public RuleData ruleData;
+
     public int minPlayerCount;
     public int imposterCount;
 

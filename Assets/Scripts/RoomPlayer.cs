@@ -46,29 +46,44 @@ public class RoomPlayer : NetworkRoomPlayer
         ruleSettingButton.SetActive(true);
 
     }
+    [SyncVar]
+    public string playerName;
 
-
-    private void Start()
+    public void Start()
     {
         base.Start();
 
         if (isServer)
         {
             SpawnPlayerInLobby();
-        }
-        else
-        {
-            ruleSettingButton.SetActive(false);
+            LobbyUI.instance.ActivateButton();
         }
 
-        LobbyUI.instance.UpdatePlayerCount();
+        if (isLocalPlayer)
+        {
+            CmdSetPlayerName(PlayerSettings.nickname);
+        }
+        LobbyUI.instance.PlayerCounter.UpdatePlayerCount();
+
     }
+
+    //private void Start()
+    //{
+    //    base.Start();
+
+    //}
 
     private void OnDestroy()
     {
-        LobbyUI.instance.UpdatePlayerCount();
+        LobbyUI.instance.PlayerCounter.UpdatePlayerCount();
     }
 
+    [Command]
+    public void CmdSetPlayerName(string name)
+    {
+        playerName = name;
+        lobbyPlayer.playerName = name;
+    }
     private void SpawnPlayerInLobby()
     {
         var roomSlots = (NetworkManager.singleton as RoomManager).roomSlots;
