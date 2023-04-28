@@ -48,30 +48,34 @@ public class RoomPlayer : NetworkRoomPlayer
     }
     [SyncVar]
     public string playerName;
+    
 
-    public void Start()
+
+    public override void OnStartAuthority()
     {
-        base.Start();
+        base.OnStartAuthority();
 
-        if (isServer)
-        {
-            SpawnPlayerInLobby();
-            LobbyUI.instance.ActivateButton();
-        }
-
-        if (isLocalPlayer)
-        {
-            CmdSetPlayerName(PlayerSettings.nickname);
-        }
         LobbyUI.instance.PlayerCounter.UpdatePlayerCount();
+    }
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+
+        SpawnPlayerInLobby();
+        LobbyUI.instance.ActivateButton();
 
     }
 
-    //private void Start()
-    //{
-    //    base.Start();
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
 
-    //}
+        CmdSetPlayerName(PlayerSettings.nickname);
+        Debug.Log("Name: " + PlayerSettings.nickname);
+
+    }
+
 
     private void OnDestroy()
     {

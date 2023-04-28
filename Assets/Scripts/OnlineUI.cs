@@ -7,7 +7,7 @@ using Mirror;
 
 public class OnlineUI : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField input;
+    [SerializeField] private TMP_Text input;
     [SerializeField] private GameObject roomUI;
 
     public void OnClickCreateRoomButton()

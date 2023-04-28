@@ -8231,7 +8231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7f49cf47e93064ab06272a0c97128e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 2100235108}
+  input: {fileID: 2095974759}
   roomUI: {fileID: 874943708}
 --- !u!1 &1028454916
 GameObject:

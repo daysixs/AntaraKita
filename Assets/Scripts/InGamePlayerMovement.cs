@@ -21,11 +21,10 @@ public class InGamePlayerMovement : PlayerMovement
         if (isOwned)
         {
             isMoving = true;
-            var myRoomPlayer = RoomPlayer.MyRoomPlayer;
-            CmdSetPlayerCharacter(myRoomPlayer.playerName);
+            CmdSetPlayerCharacter(PlayerSettings.nickname);
         }
 
-        GameSystem.instance.AddPlayer(this);
+        //GameSystem.instance.AddPlayer(this);
     }
 
     [Command]

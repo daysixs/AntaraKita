@@ -41,9 +41,9 @@ public class PlayerMovement : NetworkBehaviour
     private TMP_Text PlayerNameText;
     public void HandlePlayerName(string old, string newName)
     {
-        PlayerNameText.text = newName;
-        
+        PlayerNameText.text = newName;     
     }
+
 
     public virtual void Start()
     {
